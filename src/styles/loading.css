@@ -1,0 +1,439 @@
+/* ==========================================================================
+   ABIT - AJAY BINAY INSTITUTE OF TECHNOLOGY
+   LOADING SCREEN & SPINNER ANIMATIONS
+   Modern White & Royal Blue Theme
+   ========================================================================== */
+
+/* Fullscreen Loader Overlay */
+.abit-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #F8FAFC 55%, #EDF2F7 100%);
+  padding: 24px;
+  overflow: hidden;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.abit-loader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+/* Inline / Component-level Loader */
+.abit-loader-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: transparent;
+  min-height: 280px;
+  width: 100%;
+}
+
+/* Subtle Animated Ambient Background Effects */
+.abit-loader-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.loader-glow-circle-1 {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(2, 132, 199, 0.05) 50%, transparent 70%);
+  animation: pulseAmbient 4s ease-in-out infinite alternate;
+}
+
+.loader-glow-circle-2 {
+  position: absolute;
+  bottom: 20%;
+  right: 25%;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
+  animation: pulseAmbient 5s ease-in-out infinite alternate-reverse;
+}
+
+.loader-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(203, 213, 225, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(203, 213, 225, 0.25) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 75%);
+  opacity: 0.6;
+}
+
+/* Loader Center Card / Core */
+.abit-loader-card {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 460px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 
+    0 20px 40px -15px rgba(15, 23, 42, 0.07),
+    0 0 30px rgba(37, 99, 235, 0.06);
+  border-radius: 24px;
+  padding: 36px 32px 30px;
+  text-align: center;
+  animation: cardFloat 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Orbit & Logo Wrapper */
+.abit-loader-crest-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+/* Outer Orbit Track */
+.loader-orbit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(37, 99, 235, 0.25);
+  animation: spinRing 12s linear infinite;
+}
+
+/* Outer Glowing Orbit Dot */
+.loader-orbit-ring::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #0284C7;
+  box-shadow: 0 0 10px #0284C7, 0 0 20px #0284C7;
+}
+
+/* Inner Spinning Accent Ring */
+.loader-inner-ring {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #2563EB;
+  border-right-color: #D97706;
+  animation: spinRingReverse 2.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+/* Middle Glow Halo */
+.loader-glow-halo {
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.16) 0%, rgba(2, 132, 199, 0.08) 60%, transparent 80%);
+  animation: haloBreath 2.2s ease-in-out infinite alternate;
+}
+
+/* ABIT Center Crest Image */
+.abit-loader-img {
+  position: relative;
+  z-index: 2;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(30, 58, 138, 0.18));
+  animation: crestBob 2.5s ease-in-out infinite alternate;
+}
+
+/* Brand Text Section */
+.abit-loader-brand {
+  margin-bottom: 22px;
+}
+
+.abit-loader-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #1E3A8A;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.abit-loader-dept {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0284C7;
+  margin-bottom: 4px;
+}
+
+.abit-loader-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.loader-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D97706;
+  box-shadow: 0 0 6px #F59E0B;
+  animation: badgeBlink 1.2s ease-in-out infinite alternate;
+}
+
+/* Progress Bar Container */
+.abit-loader-progress-box {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.abit-loader-progress-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 11px;
+}
+
+.abit-loader-status-text {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  color: #475569;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+}
+
+.abit-loader-percentage {
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  color: #2563EB;
+  font-size: 12px;
+}
+
+/* Progress Track and Bar */
+.abit-loader-track {
+  width: 100%;
+  height: 7px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.abit-loader-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #1E40AF 0%, #2563EB 40%, #0284C7 80%, #D97706 100%);
+  border-radius: 9999px;
+  position: relative;
+  transition: width 0.18s linear;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+}
+
+/* Shimmer Light across the progress bar */
+.abit-loader-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+  animation: barShimmer 1.4s ease-in-out infinite;
+}
+
+/* System Meta Information */
+.abit-loader-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 10px;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.loader-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Skip Button */
+.abit-loader-skip-btn {
+  margin-top: 18px;
+  background: transparent;
+  border: 1px solid #E2E8F0;
+  color: #64748B;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.abit-loader-skip-btn:hover {
+  background: #F1F5F9;
+  color: #1E293B;
+  border-color: #CBD5E1;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+
+@keyframes spinRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinRingReverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-190deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes haloBreath {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+}
+
+@keyframes crestBob {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulseAmbient {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes cardFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes barShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes badgeBlink {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* Small Device Adjustments */
+@media (max-width: 480px) {
+  .abit-loader-card {
+    padding: 28px 20px 22px;
+  }
+
+  .abit-loader-crest-wrapper {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 18px;
+  }
+
+  .abit-loader-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .abit-loader-title {
+    font-size: 14px;
+  }
+
+  .abit-loader-dept {
+    font-size: 11px;
+  }
+}

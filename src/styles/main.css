@@ -1,0 +1,52 @@
+/* ==========================================================================
+   ABIT TECH WARRIORS - MASTER STYLESHEET
+   Aggregates all modular CSS styles under src/styles/
+   ========================================================================== */
+
+/* 1. Design Tokens & Common Color Palette */
+@import './palette.css';
+
+/* 2. Base & Reset Styles */
+@import './base.css';
+
+/* 3. Header & Navigation */
+@import './header.css';
+
+/* 4. Hero Section */
+@import './hero.css';
+
+/* 5. Domains System & Filter */
+@import './domains.css';
+
+/* 6. Projects Grid & Cards */
+@import './projects.css';
+
+/* 7. Modal Windows & Overlays */
+@import './modals.css';
+
+/* 8. Forms & Submissions */
+@import './forms.css';
+
+/* 9. Authentication & Accounts */
+@import './auth.css';
+
+/* 10. Student Profiles & Domain-Wise Showcase */
+@import './profile.css';
+
+/* 11. Specialized Pages */
+@import './pages.css';
+
+/* 12. Campus Footer */
+@import './footer.css';
+
+/* 13. Three Panels Hub (Admin, Recruiter, User, Signup, Existing Register) */
+@import './panels.css';
+
+/* 14. Responsive Breakpoints */
+@import './responsive.css';
+
+/* 15. Loading Screen & Spinner Animations */
+@import './loading.css';
+
+/* 16. ABIT AI Assistant Bot & Interactive Copilot */
+@import './ai-bot.css';

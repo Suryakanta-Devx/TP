@@ -1,0 +1,367 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS (MOBILE, TABLET, AND COMPUTER)
+   Ensures seamless layout adaptation on all screen sizes with zero horizontal scroll
+   ========================================================================== */
+
+/* Universal Overflow & Layout Guard */
+html, body, #root, .app-wrapper {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+/* --------------------------------------------------------------------------
+   1. LAPTOP & SMALL DESKTOP (max-width: 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .hall-podium-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .podium-card.first {
+    order: -1;
+  }
+
+  .submit-studio-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .studio-preview-sticky {
+    position: static;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLET SCREENS (max-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  /* Header Adaptation: Hide desktop nav, show mobile hamburger */
+  .desktop-nav,
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle-btn {
+    display: flex !important;
+  }
+
+  .header-container {
+    padding: 10px 18px;
+    justify-content: space-between;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .domains-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .placement-recruiter-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .modal-team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE PHONES (max-width: 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Brand Title Scaling */
+  .brand-institution {
+    font-size: 9.5px;
+    letter-spacing: 0.05em;
+  }
+
+  .dept-tag {
+    font-size: 9px;
+  }
+
+  .brand-title {
+    font-size: 14px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 24px 0 16px;
+  }
+
+  .hero-pill-badge {
+    font-size: 11px;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(24px, 7vw, 34px);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 0 4px;
+  }
+
+  /* Search & Sort Stack */
+  .search-sort-wrapper {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .search-bar-container {
+    width: 100%;
+  }
+
+  .sort-select-wrapper {
+    width: 100%;
+  }
+
+  .sort-dropdown {
+    width: 100%;
+  }
+
+  /* Metrics Strip: Clean 2x2 Grid */
+  .metrics-strip {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    padding: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .metric-divider {
+    display: none !important;
+  }
+
+  .metric-item {
+    padding: 6px 4px;
+  }
+
+  /* Projects & Domains Grids: 1 Column Fluid */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .domains-page-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .domain-card {
+    padding: 16px;
+  }
+
+  /* Domains Filter Strip: Horizontal Scroll with momentum */
+  .domains-filter-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px 4px;
+    justify-content: flex-start;
+  }
+
+  .domains-filter-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .domain-filter-chip {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Three Panels Hub */
+  .three-panels-hub-wrapper {
+    padding: 16px 12px;
+    border-radius: var(--radius-md);
+    margin: 16px 0 28px;
+  }
+
+  .hub-title {
+    font-size: 20px;
+  }
+
+  .hub-subtitle {
+    font-size: 13px;
+  }
+
+  .hub-primary-nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .hub-nav-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .three-subpanels-bar {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .subpanel-toggle-btn {
+    padding: 12px 14px;
+  }
+
+  .admin-controls-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .admin-search-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .admin-filter-tabs {
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
+  }
+
+  /* Forms & Modals */
+  .form-row.two-col, 
+  .form-grid-two, 
+  .form-grid-three {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .modal-container {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    max-height: 90vh !important;
+    border-radius: var(--radius-lg) !important;
+    margin: 10px auto;
+  }
+
+  .modal-header {
+    padding: 16px 18px;
+  }
+
+  .modal-body {
+    padding: 16px 18px;
+    max-height: calc(90vh - 120px);
+  }
+
+  /* Student Profile */
+  .profile-header-content {
+    flex-direction: column;
+    padding: 0 14px 16px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-avatar-wrap {
+    margin-top: -40px;
+  }
+
+  .profile-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  /* Footer */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px 24px;
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-social-links {
+    justify-content: center;
+  }
+
+  /* Padding at bottom of page for floating bot */
+  .main-content {
+    padding-bottom: 75px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. ULTRA-COMPACT SMARTPHONES (max-width: 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .brand-text {
+    max-width: 180px;
+  }
+
+  .brand-institution {
+    font-size: 8.5px;
+  }
+
+  .dept-tag {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 13px;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .main-content {
+    padding: 0 10px 75px;
+  }
+
+  .recruiter-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-card {
+    padding: 12px;
+  }
+
+  .user-profile-header-btn .header-user-text {
+    display: none;
+  }
+
+  .user-profile-header-btn {
+    padding: 3px;
+    border-radius: 50%;
+  }
+}
